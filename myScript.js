@@ -1,5 +1,9 @@
     var rows = document.getElementsByTagName("tr");
 
+function initDiv(){
+
+}
+
 function changeColorOdd(rowNum) {
         var i = 0;
         //console.log(rowNum);
@@ -20,8 +24,10 @@ function changeColorOdd(rowNum) {
         }
     }
 
-    function changeColor(rowNum) {
+    function changeColor(event,rowNum) {
         var i = 0;
+       // console.log(event);
+        event.stopPropagation();
        // rowNum.stopPropagation();
         //console.log(rowNum);
         // //console.log(rows[0].cells[0].innerHTML);
@@ -41,9 +47,10 @@ function changeColorOdd(rowNum) {
         }
     }
 
-    function swapValue(rowNum) {
+    function swapValue(event,rowNum) {
         var i = 0;
         //console.log(rowNum);
+        //event.stopPropagation();
         for (i = 0; i < 6; i += 2) {
             var temp = rows[rowNum].cells[i].innerHTML;
             //console.log(typeof(temp));
@@ -51,3 +58,16 @@ function changeColorOdd(rowNum) {
             rows[rowNum].cells[i + 1].innerHTML = temp;
         }
     }
+
+
+// function fullName(firstName, lastName, callback){
+// 	var temp = 'temp variable of fullName'
+//   console.log("My name is " + firstName + " " + lastName);
+//   callback(lastName);
+// }
+
+// var greeting = function(ln){
+//   console.log('Welcome Mr. ' + ln);
+// };
+
+// fullName("Jackie", "Chan", greeting);
